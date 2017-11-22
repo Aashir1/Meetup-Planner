@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="css/navstyle.css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/mdb.css">
+    <link rel="stylesheet" href="css/orginalnavstyle.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCWnbybyRbeev6pUojeaxY3eTXGxgsxcJ0",
+            authDomain: "projects-58f52.firebaseapp.com",
+            databaseURL: "https://projects-58f52.firebaseio.com",
+            projectId: "projects-58f52",
+            storageBucket: "projects-58f52.appspot.com",
+            messagingSenderId: "189006450729"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="js/classie.js"></script>
+    <script>
+        function init() {
+            window.addEventListener('scroll', function (e) {
+                var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+                    shrinkOn = 300,
+                    header = document.querySelector("header");
+                if (distanceY > shrinkOn) {
+                    classie.add(header, "smaller");
+                } else {
+                    if (classie.has(header, "smaller")) {
+                        classie.remove(header, "smaller");
+                    }
+                }
+            });
+        }
+        window.onload = init();
+    </script>
+    <title>Create Event</title>
+</head>
+
+<body>
+    <!-- <header>
+        <div class="container clearfix">
+            <h1 id="logo">
+                LOGO
+            </h1>
+            <nav>
+                <a href="">Lorem</a>
+                <a href="">Ipsum</a>
+                <a href="">Dolor</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container red topBotomBordersOut">
+        <a>HOME</a>
+        <a>ARTICLES</a>
+        <a>PORTFOLIO</a>
+        <a>ABOUT</a>
+        <a>CONTACT</a>
+    </div> -->
+    <header>
+        <div class="container clearfix">
+            <h1 id="logo">
+                <img src="images/logo.svg" alt="logo">
+            </h1>
+            <nav>
+                <a href="createEvent.html">Create Event</a>
+                <a href="events.html">All Event</a>
+                <a href="goingEvents.html">Going Event</a>
+                <a href="javascript:void(0);" id="logout">Logout</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Button trigger modal -->
+    <div class="container text-center" style="margin-top:200px;">
+
+        <button type="button" class="btn btn-primary btn-primar" style="background-color:#f64060;" data-toggle="modal" data-target="#exampleModalLong">
+            Create Event
+        </button>
+    </div>
+    
+
+        
+
+    <!-- Modal For Create Event-->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLongTitle">Create Event</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="event-value" placeholder="Event" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group">
+                        <input type="datetime-local" class="form-control" id="date-value" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="create-event-btn" class="btn btn-primary" data-dismiss="modal">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal For update Event-->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLongTitle">Update Event</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="event-updated-value" placeholder="Event" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="update-event-btn" class="btn btn-primary" data-dismiss="modal">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <ul id="my-events">
+
+        </ul>
+    </section>
+
+
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery.js.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mdb.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
